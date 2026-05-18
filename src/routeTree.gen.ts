@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as StudentsRouteImport } from './routes/students'
 import { Route as PerformanceRouteImport } from './routes/performance'
+import { Route as NoticiaRouteImport } from './routes/noticia'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as StudentsIdRouteImport } from './routes/students.$id'
@@ -23,6 +24,11 @@ const StudentsRoute = StudentsRouteImport.update({
 const PerformanceRoute = PerformanceRouteImport.update({
   id: '/performance',
   path: '/performance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NoticiaRoute = NoticiaRouteImport.update({
+  id: '/noticia',
+  path: '/noticia',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GalleryRoute = GalleryRouteImport.update({
@@ -44,6 +50,7 @@ const StudentsIdRoute = StudentsIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/gallery': typeof GalleryRoute
+  '/noticia': typeof NoticiaRoute
   '/performance': typeof PerformanceRoute
   '/students': typeof StudentsRouteWithChildren
   '/students/$id': typeof StudentsIdRoute
@@ -51,6 +58,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/gallery': typeof GalleryRoute
+  '/noticia': typeof NoticiaRoute
   '/performance': typeof PerformanceRoute
   '/students': typeof StudentsRouteWithChildren
   '/students/$id': typeof StudentsIdRoute
@@ -59,19 +67,33 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/gallery': typeof GalleryRoute
+  '/noticia': typeof NoticiaRoute
   '/performance': typeof PerformanceRoute
   '/students': typeof StudentsRouteWithChildren
   '/students/$id': typeof StudentsIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/gallery' | '/performance' | '/students' | '/students/$id'
+  fullPaths:
+    | '/'
+    | '/gallery'
+    | '/noticia'
+    | '/performance'
+    | '/students'
+    | '/students/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/gallery' | '/performance' | '/students' | '/students/$id'
+  to:
+    | '/'
+    | '/gallery'
+    | '/noticia'
+    | '/performance'
+    | '/students'
+    | '/students/$id'
   id:
     | '__root__'
     | '/'
     | '/gallery'
+    | '/noticia'
     | '/performance'
     | '/students'
     | '/students/$id'
@@ -80,6 +102,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   GalleryRoute: typeof GalleryRoute
+  NoticiaRoute: typeof NoticiaRoute
   PerformanceRoute: typeof PerformanceRoute
   StudentsRoute: typeof StudentsRouteWithChildren
 }
@@ -98,6 +121,13 @@ declare module '@tanstack/react-router' {
       path: '/performance'
       fullPath: '/performance'
       preLoaderRoute: typeof PerformanceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/noticia': {
+      id: '/noticia'
+      path: '/noticia'
+      fullPath: '/noticia'
+      preLoaderRoute: typeof NoticiaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/gallery': {
@@ -139,19 +169,10 @@ const StudentsRouteWithChildren = StudentsRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   GalleryRoute: GalleryRoute,
+  NoticiaRoute: NoticiaRoute,
   PerformanceRoute: PerformanceRoute,
   StudentsRoute: StudentsRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
