@@ -33,13 +33,13 @@ function NoticiaPage() {
       {/* Reading progress bar */}
       <div className="fixed top-0 left-0 right-0 h-1 bg-transparent z-50">
         <div
-          className="h-full bg-gradient-to-r from-[#c4170c] via-[#ff4d3d] to-[#ffb800] transition-[width] duration-150"
+          className="h-full bg-gradient-to-r from-[#5b2c83] via-[#8b5cf6] to-[#06b6d4] transition-[width] duration-150"
           style={{ width: `${progress}%` }}
         />
       </div>
 
       {/* Top bar */}
-      <div className="bg-[#c4170c] text-white text-xs">
+      <div className="bg-[#5b2c83] text-white text-xs">
         <div className="max-w-[980px] mx-auto px-4 py-2 flex items-center justify-between">
           <span className="animate-fade-in">g1 › Saúde › Bem Estar</span>
           <span className="hidden sm:inline animate-fade-in">domingo, 18/05/2026</span>
@@ -47,15 +47,15 @@ function NoticiaPage() {
       </div>
 
       {/* Header G1 */}
-      <header className="border-b-2 border-[#c4170c] bg-white sticky top-1 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/90">
+      <header className="border-b-2 border-[#5b2c83] bg-white sticky top-1 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/90">
         <div className="max-w-[980px] mx-auto px-4 py-3 flex items-center gap-6">
           <div className="flex items-baseline gap-0 hover-scale cursor-pointer">
-            <span className="text-[#c4170c] font-black text-4xl leading-none tracking-tight">g</span>
-            <span className="text-[#c4170c] font-black text-4xl leading-none tracking-tight">1</span>
+            <span className="text-[#5b2c83] font-black text-4xl leading-none tracking-tight">g</span>
+            <span className="text-[#5b2c83] font-black text-4xl leading-none tracking-tight">1</span>
           </div>
           <nav className="hidden md:flex gap-5 text-sm font-semibold text-[#333]">
             {["últimas", "política", "economia", "saúde", "educação", "mundo"].map((item) => (
-              <a key={item} className="story-link hover:text-[#c4170c] transition-colors" href="#">
+              <a key={item} className="story-link hover:text-[#5b2c83] transition-colors" href="#">
                 {item}
               </a>
             ))}
@@ -65,7 +65,7 @@ function NoticiaPage() {
 
       <main className="max-w-[720px] mx-auto px-4 py-8">
         {/* Chapéu */}
-        <p className="text-[#c4170c] text-sm font-bold uppercase tracking-wide mb-3 animate-fade-in">
+        <p className="text-[#5b2c83] text-sm font-bold uppercase tracking-wide mb-3 animate-fade-in">
           ● Saúde · Dependência Química
         </p>
 
@@ -91,7 +91,7 @@ function NoticiaPage() {
         <div className="flex items-center justify-between flex-wrap gap-3 py-3 border-y border-gray-200 text-xs text-[#666] mb-6 animate-fade-in" style={{ animationDelay: "240ms", animationFillMode: "backwards" }}>
           <div>
             <p>
-              Por <span className="text-[#c4170c] font-semibold story-link cursor-pointer">Redação g1</span>
+              Por <span className="text-[#5b2c83] font-semibold story-link cursor-pointer">Redação g1</span>
             </p>
             <p className="flex items-center gap-1 mt-1">
               <Clock className="h-3 w-3" /> 18/05/2026 09h32 · Atualizado há 2 horas
@@ -118,12 +118,12 @@ function NoticiaPage() {
 
         {/* Imagem destacada */}
         <figure className="mb-6 animate-fade-in" style={{ animationDelay: "320ms", animationFillMode: "backwards" }}>
-          <div className="w-full aspect-video bg-gradient-to-br from-[#1a1a1a] via-[#4a3a3a] to-[#c4170c] flex items-center justify-center overflow-hidden relative group">
+          <div className="w-full aspect-video bg-gradient-to-br from-[#1a1a1a] via-[#4a3a3a] to-[#5b2c83] flex items-center justify-center overflow-hidden relative group">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(255,255,255,0.15),transparent_50%)]" />
             <span className="text-white/90 text-sm font-medium relative z-10 group-hover:scale-110 transition-transform duration-500">[ Imagem da entrevista ]</span>
             <div className="absolute bottom-3 left-3 bg-black/60 backdrop-blur px-2 py-1 text-[10px] text-white rounded">▶ VÍDEO 04:32</div>
           </div>
-          <figcaption className="text-xs text-[#666] mt-2 border-l-2 border-[#c4170c] pl-2">
+          <figcaption className="text-xs text-[#666] mt-2 border-l-2 border-[#5b2c83] pl-2">
             Especialista durante entrevista sobre tratamento de dependentes químicos. — Foto: Divulgação
           </figcaption>
         </figure>
@@ -133,7 +133,7 @@ function NoticiaPage() {
           <button
             onClick={() => setLiked((v) => !v)}
             className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-all duration-200 hover-scale ${
-              liked ? "bg-[#c4170c] text-white border-[#c4170c]" : "bg-white text-[#333] border-gray-300 hover:border-[#c4170c]"
+              liked ? "bg-[#5b2c83] text-white border-[#5b2c83]" : "bg-white text-[#333] border-gray-300 hover:border-[#5b2c83]"
             }`}
           >
             <Heart className={`h-4 w-4 transition-transform ${liked ? "fill-current scale-110" : ""}`} />
@@ -154,7 +154,7 @@ function NoticiaPage() {
         <article className="space-y-5 text-[17px] leading-[1.75] text-[#1a1a1a]" style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}>
           <Reveal>
             <p>
-              <span className="float-left text-6xl font-bold text-[#c4170c] leading-none mr-2 mt-1" style={{ fontFamily: "Georgia, serif" }}>
+              <span className="float-left text-6xl font-bold text-[#5b2c83] leading-none mr-2 mt-1" style={{ fontFamily: "Georgia, serif" }}>
                 A
               </span>
               dependência química é hoje um dos maiores desafios de saúde pública no
@@ -187,8 +187,8 @@ function NoticiaPage() {
           </Reveal>
 
           <Reveal>
-            <blockquote className="relative border-l-4 border-[#c4170c] pl-6 py-4 my-8 italic text-[#333] text-xl bg-gradient-to-r from-[#fff5f4] to-transparent rounded-r-lg" style={{ fontFamily: "Georgia, serif" }}>
-              <span className="absolute -top-2 -left-2 text-6xl text-[#c4170c]/30 leading-none">"</span>
+            <blockquote className="relative border-l-4 border-[#5b2c83] pl-6 py-4 my-8 italic text-[#333] text-xl bg-gradient-to-r from-[#f5f0fa] to-transparent rounded-r-lg" style={{ fontFamily: "Georgia, serif" }}>
+              <span className="absolute -top-2 -left-2 text-6xl text-[#5b2c83]/30 leading-none">"</span>
               Cada dia limpo é uma vitória. A recuperação não tem linha de chegada,
               ela é construída todos os dias.
             </blockquote>
@@ -230,8 +230,8 @@ function NoticiaPage() {
                 ["NA / AA", "Narcóticos Anônimos e Alcoólicos Anônimos"],
                 ["UBS", "Unidades Básicas de Saúde do seu município"],
               ].map(([t, d]) => (
-                <li key={t} className="flex gap-3 p-3 rounded-lg bg-gray-50 hover:bg-[#fff5f4] hover:border-[#c4170c]/30 border border-transparent transition-all duration-200 hover-scale">
-                  <span className="font-bold text-[#c4170c] min-w-[80px]">{t}</span>
+                <li key={t} className="flex gap-3 p-3 rounded-lg bg-gray-50 hover:bg-[#f5f0fa] hover:border-[#5b2c83]/30 border border-transparent transition-all duration-200 hover-scale">
+                  <span className="font-bold text-[#5b2c83] min-w-[80px]">{t}</span>
                   <span className="text-[#333] text-base" style={{ fontFamily: "Arial, sans-serif" }}>{d}</span>
                 </li>
               ))}
@@ -251,7 +251,7 @@ function NoticiaPage() {
           {["Dependência Química", "Saúde", "Família", "Tratamento", "CAPS"].map((t, i) => (
             <span
               key={t}
-              className="text-xs bg-gray-100 text-[#333] px-3 py-1.5 rounded-sm border border-gray-200 hover:bg-[#c4170c] hover:text-white hover:border-[#c4170c] cursor-pointer transition-all duration-200 animate-fade-in"
+              className="text-xs bg-gray-100 text-[#333] px-3 py-1.5 rounded-sm border border-gray-200 hover:bg-[#5b2c83] hover:text-white hover:border-[#5b2c83] cursor-pointer transition-all duration-200 animate-fade-in"
               style={{ animationDelay: `${i * 60}ms`, animationFillMode: "backwards" }}
             >
               #{t}
@@ -267,7 +267,7 @@ function NoticiaPage() {
 
         {/* Veja também */}
         <section className="mt-10">
-          <h3 className="text-lg font-bold border-l-4 border-[#c4170c] pl-3 mb-4">Veja também</h3>
+          <h3 className="text-lg font-bold border-l-4 border-[#5b2c83] pl-3 mb-4">Veja também</h3>
           <div className="grid sm:grid-cols-2 gap-4">
             {[
               ["Conheça os sinais de alerta da dependência química na adolescência", "from-blue-400 to-blue-700"],
@@ -279,7 +279,7 @@ function NoticiaPage() {
                 <div className={`w-24 h-20 bg-gradient-to-br ${grad} flex-shrink-0 rounded-sm overflow-hidden relative`}>
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
                 </div>
-                <p className="text-sm text-[#1a1a1a] group-hover:text-[#c4170c] leading-snug transition-colors" style={{ fontFamily: "Georgia, serif" }}>
+                <p className="text-sm text-[#1a1a1a] group-hover:text-[#5b2c83] leading-snug transition-colors" style={{ fontFamily: "Georgia, serif" }}>
                   {t}
                 </p>
               </a>
