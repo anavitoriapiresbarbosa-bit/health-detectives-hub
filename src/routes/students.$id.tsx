@@ -19,8 +19,10 @@ export const Route = createFileRoute("/students/$id")({
 });
 
 function StudentProfile() {
-  const { student } = Route.useLoaderData();
+  const data = Route.useLoaderData() as { student: (typeof mockStudents)[number] };
+  const student = data.student;
   const pct = Math.round((student.completedPhases / student.totalPhases) * 100);
+
 
   return (
     <div className="space-y-6">

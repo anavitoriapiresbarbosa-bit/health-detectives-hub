@@ -1,6 +1,19 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Share2, Facebook, Twitter, MessageCircle, Mail, Clock, Eye, Heart, Bookmark } from "lucide-react";
 import { useEffect, useState } from "react";
+import foto1 from "@/assets/IMG-20260817-WA0009_1.jpg.asset.json";
+import foto2 from "@/assets/IMG-20260817-WA0008.jpg.asset.json";
+import foto3 from "@/assets/IMG-20260817-WA0005.jpg.asset.json";
+import foto4 from "@/assets/IMG-20260817-WA0004.jpg.asset.json";
+
+const acaoFotos = [
+  { src: foto1.url, alt: "Equipe apresentando o QR Code no mural de informações do Senac" },
+  { src: foto2.url, alt: "Fixação do QR Code no mural do Senac" },
+  { src: foto3.url, alt: "Colagem do QR Code em poste pelas ruas da cidade" },
+  { src: foto4.url, alt: "Recorte dos adesivos com QR Code no laboratório" },
+];
+
+
 
 export const Route = createFileRoute("/noticia")({
   head: () => ({
@@ -245,6 +258,38 @@ function NoticiaPage() {
             </p>
           </Reveal>
         </article>
+
+        {/* Nossa ação */}
+        <section className="mt-10">
+          <h3 className="text-lg font-bold border-l-4 border-[#5b2c83] pl-3 mb-2">Nossa ação</h3>
+          <p className="text-sm text-[#555] mb-4" style={{ fontFamily: "Arial, sans-serif" }}>
+            Espalhamos QR Codes pela cidade e pelo Senac, com recorte, montagem e
+            fixação dos materiais feitos pela equipe.
+          </p>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            {acaoFotos.map((f, i) => (
+              <figure
+                key={f.src}
+                className="group animate-fade-in"
+                style={{ animationDelay: `${i * 90}ms`, animationFillMode: "backwards" }}
+              >
+                <div className="aspect-[3/4] overflow-hidden rounded-sm bg-gray-100">
+                  <img
+                    src={f.src}
+                    alt={f.alt}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <figcaption className="text-[11px] text-[#666] mt-1.5 border-l-2 border-[#5b2c83] pl-2 leading-snug">
+                  {f.alt}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+
+
 
         {/* Tags */}
         <div className="flex flex-wrap gap-2 mt-8">
