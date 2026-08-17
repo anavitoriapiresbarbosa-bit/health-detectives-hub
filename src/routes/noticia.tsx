@@ -1,6 +1,19 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Share2, Facebook, Twitter, MessageCircle, Mail, Clock, Eye, Heart, Bookmark } from "lucide-react";
 import { useEffect, useState } from "react";
+import foto1 from "@/assets/IMG-20260817-WA0009_1.jpg.asset.json";
+import foto2 from "@/assets/IMG-20260817-WA0008.jpg.asset.json";
+import foto3 from "@/assets/IMG-20260817-WA0005.jpg.asset.json";
+import foto4 from "@/assets/IMG-20260817-WA0004.jpg.asset.json";
+
+const acaoFotos = [
+  { src: foto1.url, alt: "Equipe apresentando o QR Code no mural de informações do Senac" },
+  { src: foto2.url, alt: "Fixação do QR Code no mural do Senac" },
+  { src: foto3.url, alt: "Colagem do QR Code em poste pelas ruas da cidade" },
+  { src: foto4.url, alt: "Recorte dos adesivos com QR Code no laboratório" },
+];
+
+
 
 export const Route = createFileRoute("/noticia")({
   head: () => ({
