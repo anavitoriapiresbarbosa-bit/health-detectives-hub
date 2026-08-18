@@ -18,6 +18,7 @@ const items = [
   { title: "Alunos", url: "/students", icon: Users },
   { title: "Galeria", url: "/gallery", icon: ImageIcon },
   { title: "Desempenho", url: "/performance", icon: BarChart3 },
+  { title: "O Ciclo", url: "/o-ciclo", icon: BookOpen },
 ];
 
 export function AppSidebar() {
