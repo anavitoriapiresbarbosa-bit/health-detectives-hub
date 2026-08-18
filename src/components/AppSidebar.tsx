@@ -1,5 +1,5 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { LayoutDashboard, Users, Image as ImageIcon, BarChart3, Settings, Sparkles } from "lucide-react";
+import { LayoutDashboard, Users, Image as ImageIcon, BarChart3, Settings, Sparkles, BookOpen } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
