@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as StudentsRouteImport } from './routes/students'
 import { Route as PerformanceRouteImport } from './routes/performance'
+import { Route as OCicloRouteImport } from './routes/o-ciclo'
 import { Route as NoticiaRouteImport } from './routes/noticia'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as IndexRouteImport } from './routes/index'
@@ -24,6 +25,11 @@ const StudentsRoute = StudentsRouteImport.update({
 const PerformanceRoute = PerformanceRouteImport.update({
   id: '/performance',
   path: '/performance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OCicloRoute = OCicloRouteImport.update({
+  id: '/o-ciclo',
+  path: '/o-ciclo',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NoticiaRoute = NoticiaRouteImport.update({
@@ -51,6 +57,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/gallery': typeof GalleryRoute
   '/noticia': typeof NoticiaRoute
+  '/o-ciclo': typeof OCicloRoute
   '/performance': typeof PerformanceRoute
   '/students': typeof StudentsRouteWithChildren
   '/students/$id': typeof StudentsIdRoute
@@ -59,6 +66,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/gallery': typeof GalleryRoute
   '/noticia': typeof NoticiaRoute
+  '/o-ciclo': typeof OCicloRoute
   '/performance': typeof PerformanceRoute
   '/students': typeof StudentsRouteWithChildren
   '/students/$id': typeof StudentsIdRoute
@@ -68,6 +76,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/gallery': typeof GalleryRoute
   '/noticia': typeof NoticiaRoute
+  '/o-ciclo': typeof OCicloRoute
   '/performance': typeof PerformanceRoute
   '/students': typeof StudentsRouteWithChildren
   '/students/$id': typeof StudentsIdRoute
@@ -78,6 +87,7 @@ export interface FileRouteTypes {
     | '/'
     | '/gallery'
     | '/noticia'
+    | '/o-ciclo'
     | '/performance'
     | '/students'
     | '/students/$id'
@@ -86,6 +96,7 @@ export interface FileRouteTypes {
     | '/'
     | '/gallery'
     | '/noticia'
+    | '/o-ciclo'
     | '/performance'
     | '/students'
     | '/students/$id'
@@ -94,6 +105,7 @@ export interface FileRouteTypes {
     | '/'
     | '/gallery'
     | '/noticia'
+    | '/o-ciclo'
     | '/performance'
     | '/students'
     | '/students/$id'
@@ -103,6 +115,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   GalleryRoute: typeof GalleryRoute
   NoticiaRoute: typeof NoticiaRoute
+  OCicloRoute: typeof OCicloRoute
   PerformanceRoute: typeof PerformanceRoute
   StudentsRoute: typeof StudentsRouteWithChildren
 }
@@ -121,6 +134,13 @@ declare module '@tanstack/react-router' {
       path: '/performance'
       fullPath: '/performance'
       preLoaderRoute: typeof PerformanceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/o-ciclo': {
+      id: '/o-ciclo'
+      path: '/o-ciclo'
+      fullPath: '/o-ciclo'
+      preLoaderRoute: typeof OCicloRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/noticia': {
@@ -170,6 +190,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   GalleryRoute: GalleryRoute,
   NoticiaRoute: NoticiaRoute,
+  OCicloRoute: OCicloRoute,
   PerformanceRoute: PerformanceRoute,
   StudentsRoute: StudentsRouteWithChildren,
 }

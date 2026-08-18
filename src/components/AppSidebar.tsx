@@ -1,5 +1,5 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { LayoutDashboard, Users, Image as ImageIcon, BarChart3, Settings, Sparkles } from "lucide-react";
+import { LayoutDashboard, Users, Image as ImageIcon, BarChart3, Settings, Sparkles, BookOpen } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -18,6 +18,7 @@ const items = [
   { title: "Alunos", url: "/students", icon: Users },
   { title: "Galeria", url: "/gallery", icon: ImageIcon },
   { title: "Desempenho", url: "/performance", icon: BarChart3 },
+  { title: "O Ciclo", url: "/o-ciclo", icon: BookOpen },
 ];
 
 export function AppSidebar() {
