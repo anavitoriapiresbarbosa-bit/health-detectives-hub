@@ -275,23 +275,20 @@ function OCicloPage() {
               O diário de bordo demonstra a evolução do projeto desde a escolha do tema até a preparação dos materiais. Cada registro marca uma decisão da equipe.
             </p>
           </Reveal>
-          <div className="relative">
-            <div className="absolute left-4 sm:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#5b2c83] to-[#06b6d4]" />
-            <div className="space-y-10">
-              {diario.map((item, i) => (
+          <div className="relative max-w-3xl mx-auto">
+            <div className="absolute left-6 top-2 bottom-2 w-0.5 bg-gradient-to-b from-[#5b2c83] to-[#06b6d4] rounded-full" />
+            <div className="space-y-8">
+              {diario.map((item) => (
                 <Reveal key={item.data}>
-                  <div className={`relative flex flex-col sm:flex-row ${i % 2 === 0 ? "sm:flex-row-reverse" : ""} items-start sm:items-center gap-6`}>
-                    <div className="flex-1 sm:text-right pl-12 sm:pl-0 sm:pr-8">
-                      <div className={`inline-block text-left ${i % 2 === 0 ? "sm:text-right" : "sm:text-left"} w-full`}>
-                        <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#5b2c83] text-white text-xs font-bold mb-2">
-                          <Calendar className="h-3 w-3" /> {item.data}
-                        </span>
-                        <h3 className="font-display font-bold text-xl text-[#5b2c83]">{item.etapa}</h3>
-                        <p className="text-[#555] mt-1">{item.registro}</p>
-                      </div>
+                  <div className="relative flex items-start gap-6 pl-2">
+                    <div className="relative z-10 h-10 w-10 rounded-full bg-white border-4 border-[#5b2c83] flex-shrink-0 shadow-sm" />
+                    <div className="flex-1 -mt-1">
+                      <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#5b2c83] text-white text-xs font-bold mb-2">
+                        <Calendar className="h-3 w-3" /> {item.data}
+                      </span>
+                      <h3 className="font-display font-bold text-xl text-[#5b2c83]">{item.etapa}</h3>
+                      <p className="text-[#555] mt-1 leading-relaxed">{item.registro}</p>
                     </div>
-                    <div className="absolute left-0 sm:left-1/2 -translate-x-0 sm:-translate-x-1/2 h-8 w-8 rounded-full bg-white border-4 border-[#5b2c83] z-10" />
-                    <div className="flex-1 hidden sm:block" />
                   </div>
                 </Reveal>
               ))}
